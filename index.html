@@ -1,1 +1,22 @@
-
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CORS Test</title>
+</head>
+<body>
+  <h1>VIP.js loaded via fetch</h1>
+  <pre id="output">Checking...</pre>
+  <script>
+    fetch('/VIP.js')
+      .then(res => res.text())
+      .then(text => {
+        document.getElementById('output').textContent = 
+          '✅ Loaded successfully, size: ' + text.length + ' bytes';
+      })
+      .catch(err => {
+        document.getElementById('output').textContent = 
+          '❌ CORS error: ' + err;
+      });
+  </script>
+</body>
+</html>
